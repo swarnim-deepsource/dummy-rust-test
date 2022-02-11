@@ -8,5 +8,8 @@ fn main() {
     some.iter()
     .inspect(|test| { println!("{}", test); })
     .for_each(|x| { foo(*x) }); // performing copy because pointers/refs are likely just as big as an i32
+    some.iter()
+    .filter(|c| if **c > 8 { true } else { false })
+    .next();
     println!("Hello, world!");
 }
