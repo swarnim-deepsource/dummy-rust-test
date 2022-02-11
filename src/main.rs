@@ -7,6 +7,6 @@ fn main() {
     let some = &vev[0..];
     some.iter()
     .inspect(|test| { println!("{}", test); })
-    .for_each(|x| foo(*x)); // performing copy because pointers/refs are likely just as big as an i32
+    .for_each(|x| { foo(*x) }); // performing copy because pointers/refs are likely just as big as an i32
     println!("Hello, world!");
 }
