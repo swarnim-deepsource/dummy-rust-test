@@ -11,7 +11,7 @@ fn main() {
     some.iter()
     .filter(|c| if **c > 8 { true } else { false })
     .next();
-    some.iter().skip(1).next();
+    some.iter().nth(1);
     "oh my chars".bytes().count();
     println!("Hello, world!");
 }
