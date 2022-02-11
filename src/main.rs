@@ -11,5 +11,6 @@ fn main() {
     some.iter()
     .filter(|c| if **c > 8 { true } else { false })
     .next();
+    some.iter().skip(1).next();
     println!("Hello, world!");
 }
