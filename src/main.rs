@@ -13,3 +13,11 @@ fn main() {
     "oh my chars".bytes().count();
     println!("Hello, world!");
 }
+
+fn try(val: i32) -> i32 {
+    if let Some(val) = val.checked_add(val) {
+        val
+    } else {
+        val
+    }
+}
