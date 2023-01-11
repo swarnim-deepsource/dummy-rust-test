@@ -1,3 +1,5 @@
+use serialport;
+
 fn foo(v : i32) {
     println!("foo : {}", v);
 }
@@ -16,7 +18,9 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn try(val: i32) -> i32 {
+fn test(val: i32) -> i32 {
+    let port = Port();
+    drop(Port);
     if let Some(val) = val.checked_add(val) {
         val
     } else {
