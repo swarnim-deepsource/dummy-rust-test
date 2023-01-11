@@ -2,7 +2,9 @@ version = 1
 
 [[analyzers]]
 name = "rust"
-enabled = true
 
   [analyzers.meta]
-  msrv = "1.58.0"
+  msrv = "stable"
+
+[[transformers]]
+name = "rustfmt"
