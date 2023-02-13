@@ -8,3 +8,6 @@ name = "rust"
 
 [[transformers]]
 name = "rustfmt"
+
+[[analyzers]]
+name = "test-coverage"
