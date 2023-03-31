@@ -8,7 +8,6 @@ fn main() {
 
 async fn foo() {
 
-
 }
 
 #[test]
