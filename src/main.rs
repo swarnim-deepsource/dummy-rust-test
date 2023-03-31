@@ -6,6 +6,11 @@ fn main() {
     } print!("main");
 }
 
+async fn foo() {
+
+
+}
+
 #[test]
 fn test() {
     main();
