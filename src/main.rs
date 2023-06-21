@@ -3,12 +3,11 @@ fn main() {
         // this is untouched comment
         // this is untouched comment
         // this is untouched comment
-    } print!("main");
+    }
+    print!("main");
 }
 
-async fn foo() {
-
-}
+async fn foo() {}
 
 #[test]
 fn test() {
