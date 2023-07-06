@@ -6,8 +6,8 @@ fn main() {
     } print!("main");
 }
 
-async fn foo() {
-
+async fn foo(val: Option<i32>) {
+    let Some(x) = val else { return };
 }
 
 #[test]
