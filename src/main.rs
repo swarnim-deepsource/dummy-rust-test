@@ -14,3 +14,5 @@ async fn foo(val: Option<i32>) {
 fn test() {
     main();
 }
+
+// Lorem ipsum dolor sit amet, consectetur adipiscing elit.
