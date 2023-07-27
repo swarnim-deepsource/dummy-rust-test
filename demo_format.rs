@@ -1,9 +1,7 @@
 use actix_files::Files;
 use actix_multipart::Multipart;
 use actix_web::{
-    get, middleware::Logger,
-post, web,
-App, Error, HttpResponse, HttpServer, Responder,
+    get, middleware::Logger, post, web, App, Error, HttpResponse, HttpServer, Responder,
 };
 
 use futures_util::stream::StreamExt as _;
@@ -19,15 +17,12 @@ use std::os::windows::fs::MetadataExt;
 
 #[get("/{route}")]
 async fn index_routes() -> impl Responder {
-    HttpResponse::Ok()
-    .body(read("./build/index.html")
-    .unwrap())
+    HttpResponse::Ok().body(read("./build/index.html").unwrap())
 }
 
 #[get("/")]
 async fn index() -> impl Responder {
-    HttpResponse::Ok()
-    .body(read("./build/index.html").unwrap())
+    HttpResponse::Ok().body(read("./build/index.html").unwrap())
 }
 
 #[post("/upload/")]
@@ -35,7 +30,7 @@ async fn upload(mut payload: Multipart) -> Result<HttpResponse, Error> {
     // iterate over multipart stream
     log::warn!("/upload/ was called!");
     while let Some(Ok(mut field)) = payload.next().await {
-    // A multipart/form-data stream has to contain `content_disposition`
+        // A multipart/form-data stream has to contain `content_disposition`
         let content_disposition = field.content_disposition();
         let filename = content_disposition
             .get_filename()
@@ -47,8 +42,8 @@ async fn upload(mut payload: Multipart) -> Result<HttpResponse, Error> {
 
         // Field in turn is stream of *Bytes* object
         while let Some(Ok(chunk)) = field.next().await {
-          // filesystem operations are blocking, we have to use threadpool
-          f = web::block(move || f.write_all(&chunk).map(|_| f)).await??;
+            // filesystem operations are blocking, we have to use threadpool
+            f = web::block(move || f.write_all(&chunk).map(|_| f)).await??;
         }
     }
 
@@ -95,7 +90,6 @@ async fn main() -> std::io::Result<()> {
     .await
 }
 
-
 use cookie::{Cookie, CookieJar};
 
 fn use_cookie_without_secure() {
@@ -116,14 +110,13 @@ fn use_cookie_without_http_only() {
 }
 
 fn use_cookie_builder_without_http_only() {
-    Cookie::build("name",
-  "value").http_only(true);
+    Cookie::build("name", "value").http_only(true);
     Cookie::build("name", "value").http_only(false);
 }
 
 fn header() {
-use http::header::{HeaderMap, SERVER, SET_COOKIE};
-let mut h = HeaderMap::new();
+    use http::header::{HeaderMap, SERVER, SET_COOKIE};
+    let mut h = HeaderMap::new();
     h.insert(SERVER, 5.into());
     h.insert(SET_COOKIE, 42.into());
 }
