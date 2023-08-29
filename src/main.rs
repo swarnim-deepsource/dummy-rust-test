@@ -2,7 +2,8 @@ fn main() {
     if false {
         // this is untouched comment, this is untouched comment
         // this is untouched comment
-    } print!("main");
+    }
+    print!("main");
 }
 
 async fn foo(val: Option<i32>) {
